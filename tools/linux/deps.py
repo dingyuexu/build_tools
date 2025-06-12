@@ -48,7 +48,7 @@ def install_deps():
   for package in packages:
     base.cmd("sudo", ["apt-get", "install", "-y", package], True)
 
-  base.cmd("sudo", ["git", "config", "--global", "http.postBuffer",524288000], True)
+  base.cmd("sudo", ["git", "config", "--global", "http.postBuffer","524288000"], True)
   base.cmd("export", ["GIT_TRACE_PACKET=1"], True)
   base.cmd("export", ["GIT_TRACE=1"], True)
   base.cmd("export", ["GIT_CURL_VERBOSE=1"], True)
