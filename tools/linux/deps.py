@@ -60,7 +60,7 @@ def install_deps():
   #sudo swapon /swapfile
   #使用刚才创建的swap空间
 
-  base.cmd("sudo", ["dd", "if=/dev/zero", "of=/swapfile", "bs=64M","count=16"], True)
+  base.cmd("sudo", ["dd", "if=/dev/zero", "of=/swapfile", "bs=128M","count=32"], True)
   base.cmd("sudo", ["mkswap", "/swapfile"], True)
   base.cmd("sudo", ["swapon", "/swapfile"], True)
 
