@@ -53,6 +53,18 @@ def install_deps():
   base.cmd("export", ["GIT_TRACE=1"], True)
   base.cmd("export", ["GIT_CURL_VERBOSE=1"], True)
 
+  #sudo dd if=/dev/zero of=/swapfile bs=64M count=16
+  #count的大小就是增加的swap空间的大小，64M是块大小，所以空间大小是bs*count=1024MB
+  #sudo mkswap /swapfile
+  #把刚才空间格式化成swap格式
+  #sudo swapon /swapfile
+  #使用刚才创建的swap空间
+
+  base.cmd("sudo", ["dd", "if=/dev/zero", "of=/swapfile", "bs=64M","count=16"], True)
+  base.cmd("sudo", ["mkswap", "/swapfile"], True)
+  base.cmd("sudo", ["swapon", "/swapfile"], True)
+
+
   # nodejs
   base.cmd("sudo", ["apt-get", "install", "-y", "nodejs"])
   nodejs_cur = 0
